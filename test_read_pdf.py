@@ -88,11 +88,10 @@ class TestTask:
         for i in range(len(json.loads(data))):
             assert list(json.loads(data).keys())[i] == list(json.loads(data_2).keys())[i], 'Does not meet the standard.'
 
+    @pytest.mark.xfail(reason='Expected fail test')
     def test_compare_with_incorrect_data(self):
         data = self.pdf_to_json(self.correct_pdf)
         data_2 = self.pdf_to_json(self.incorrect_pdf)
 
         for i in range(len(json.loads(data))):
             assert list(json.loads(data).keys())[i] == list(json.loads(data_2).keys())[i], 'Does not meet the standard.'
-
-
